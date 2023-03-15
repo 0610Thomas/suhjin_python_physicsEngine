@@ -42,7 +42,7 @@ def force(mass: float, acc: Vector) -> Vector:
 	return Vector(mass* acc.x, mass* acc.y, mass* acc.z)
 
 class Body:
-	def __init__(self, mass, vector) -> None:
+	def __init__(self, mass: float, vector: Vector) -> None:
                 self.mass = mass
                 self.vector = vector
 
@@ -53,7 +53,8 @@ secondVector = Vector(2, 2, 2)
 
 mass = 10.0
 accel = Vector(2,3,1)
+me = Body(mass, accel)
 
-print(force(mass, accel))
-
+print(me.mass)
+print(me.vector)
 
