@@ -41,6 +41,10 @@ class Vector:
 def force(mass: float, acc: Vector) -> Vector:
 	return Vector(mass* acc.x, mass* acc.y, mass* acc.z)
 
+class Body:
+	def __init__(self, mass, vector) -> None:
+                self.mass = mass
+                self.vector = vector
 
 
 myVector = Vector(1, 2, 3)
