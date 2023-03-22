@@ -49,16 +49,36 @@ class Body:
                 self.mass = mass
                 self.position = pos
 
+class Kinematic:
+	def __init__(self, iniV: Vector, acc: Vector, x: Point, ti) -> None:
+		self.iniV = iniV
+		self.acc = acc
+		self.x = x
+		self.time = ti
+
+	def finalVX(self, iniV: Vector, acc: Vector) -> float:
+		return iniV.x + acc.z * self.time
+
+	def finalVY(self, iniV: Vector, acc: Vector) -> Vector:
+                return iniV.y + acc.z * self.time
+
+	def finalVZ(self, iniV: Vector, acc: Vector) -> Vector:
+                return iniV.z + acc.z * self.time
+
+
 
 myVector = Vector(1, 2, 3)
 
 secondVector = Vector(2, 2, 2)
 
 mass = 10.0
+
+initialV = Vector(0, 0, 2)
 accel = Vector(2,3,1)
 posi = Point(2,3,4)
+sec = 5.0
 
-me = Body(mass, posi)
+me = Kinematic(initialV, accel, posi, sec)
 
-print(me.mass)
-print(me.position)
+
+print(me.finalVZ(initialV, accel))
